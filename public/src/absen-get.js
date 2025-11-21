@@ -19,7 +19,7 @@ document.getElementById('absenForm').addEventListener('submit', async (e) => {
   const tanggal = new Date();
   const formattedTanggal = `${tanggal.getDate().toString().padStart(2, '0')}-${(tanggal.getMonth() + 1).toString().padStart(2, '0')}-${tanggal.getFullYear()}`;
 
-  const imageBase64 = ambilGambarButton();
+  const imageBase64 = ambilGambarButton(); 
 
   // ✅ 1. Cek token
   const today = new Date();
