@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <link rel="shortcut icon" href="image/logokartika_400x400-2 3.png" type="image/x-icon">
+  <link rel="stylesheet" href="src/style/dashboard.css">
+  <link rel="stylesheet" href="src/style/leaderboard.css">
+  <link rel="stylesheet" href="src/style/daftarabsen.css">
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script src="src/database.js"></script>
+</head>
+<body>
+   <header>
+        <nav>
+            <div class="header">
+                <h1>SMK KARTIKA XX-1</h1>
+            </div>
+            <div class="menu">
+                <div class="menu-1">
+                    <a class="a" href="dashboard.html">
+                        <img src="image/dashboard.png" alt="">
+                        <h4>Dashboard</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="daftarabsen.html">
+                        <img src="image/rekapitulasi.png" alt="">
+                        <h4>Rekapitulasi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="absen.html">
+                        <img src="image/absensi.png" alt="">
+                        <h4>Absensi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="leaderboard.html">
+                        <img src="image/leaderboard.png" alt="">
+                        <h4>Leaderboard</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="header-1">
+                    <div class="circle">
+                        <img width="40px" height="40px" style="z-index: 100; padding: 6px 8px;" src="image/rekapitulasi.png" alt="">
+                    </div>
+                    <div class="v-1">
+                        <h4>Absensi Siswa</h4>
+                        <p>v1.0.0</p>
+                    </div>
+                </div>
+        </nav>
+    </header>
+    <main>
+     <div class="nav-header">
+      <div style="color: black;">
+        <h2 style="font-size: 24px;">Leaderboard</h2>
+        <p style="color: rgba(0, 0, 0, 0.556);">Leaderboard Salat Siswa</p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 40px; padding-right: 20px;">
+        
+        <div class="header-2">
+          <div class="circle">
+            <img width="30px" height="30px" style="z-index: 100; padding: 6px 8px;" src="image/rekapitulasi.png" alt="">
+          </div>
+          <div id="siswa-widget" class="identitas">
+             <span id="siswa-info"></span>
+             <button id="logoutBtn" class="logout">Logout</button>
+          </div> 
+        </div>
+        <div>
+                    <img class="botton-menu" onclick="showSidebar()" src="image/menu_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="">
+                </div>
+      </div>
+    </div>
+    <nav class="sidebar" onclick="hideSidebar()">
+            <div class="header">
+                <div class="indentitias1 identitas" id="siswa-widget1" style="background-color: #7cb4386c;">
+                    <span id="siswa-info1"></span>
+                    <a id="logoutBtnHidebar" class="logout">Logout</a>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="menu-1">
+                    <a class="a" href="./dashboard.html">
+                        <img src="image/dashboard.png" alt="">
+                        <h4>Dashboard</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="./daftarabsen.html">
+                        <img src="image/rekapitulasi.png" alt="">
+                        <h4>Rekapitulasi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="./absen.html">
+                        <img src="image/absensi.png" alt="">
+                        <h4>Absensi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="./leaderboard.html">
+                        <img src="image/leaderboard.png" alt="">
+                        <h4>Leaderboard</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="header-1">
+                    <div class="circle">
+                        <img width="40px" height="40px" style="z-index: 100; padding: 6px 8px;" src="image/rekapitulasi.png" alt="">
+                    </div>
+                    <div class="v-1">
+                        <h4>Absensi Siswa</h4>
+                        <p>v1.0.0</p>
+                    </div>
+                </div>
+        </nav>
+
+  
+    <!-- ... bagian top-3 cards ... -->
+    <div style="display: flex; flex-direction: column; gap: 30px; margin-top: 50px; margin-left: 20px; margin-right: 20px; text-align: center;">
+      <div style="margin: auto;"><h1>Leaderboard In Semester</h1></div>
+      <div class="container-leader"><!-- populated by JS --></div>
+    </div>
+
+    <!-- Other Leaderboard -->
+    <div class="other-leader">
+      <div style="margin: auto;"><h2>Other Leaderboard</h2></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Peringkat</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Sholat</th>
+            <th>Izin</th>
+            <th>Alpha</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="loading-widget" >
+  <div class="loading-widget-style"></div>
+</div>
+
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<script src="src/index.js"></script>
+  <script>
+    async function loadLeaderboard() {
+        showLoading();
+      // 1. Ambil semua dokumen absen
+      const snapshot = await db.collection("absen").get();
+      const byStudent = {};
+
+      // 2. Kelompokkan per siswa per tanggal
+      snapshot.forEach(doc => {
+        const { siswaNis, status, tanggal, nama, kelas } = doc.data();
+        if (!byStudent[siswaNis]) {
+          byStudent[siswaNis] = { nama, kelas, dates: new Map() };
+        }
+        if (!byStudent[siswaNis].dates.has(tanggal)) {
+          byStudent[siswaNis].dates.set(tanggal, status?.toLowerCase());
+        }
+      });
+
+      // 3. Hitung persentase
+      const ranking = Object.entries(byStudent).map(([nis, info]) => {
+        let sholat = 0, izin = 0, alpa = 0;
+        info.dates.forEach(st => {
+          if (st === 'sholat') sholat++;
+          else if (st === 'izin') izin++;
+          else alpa++;
+        });
+        const total = sholat + izin + alpa;
+        const pct = n => total ? Math.round(n / total * 100) : 0;
+        return { nis, nama: info.nama, kelas: info.kelas, sholatPct: pct(sholat), izinPct: pct(izin), alpaPct: pct(alpa) };
+      });
+
+      // 4. Urutkan descending berdasarkan alpaPct
+      ranking.sort((a, b) => b.alpaPct - a.alpaPct);
+
+      // 5. Render top 3
+      const container = document.querySelector('.container-leader');
+      const medals = ['gold', 'silver', 'perunggu'];
+      container.innerHTML = '';
+      ranking.slice(0, 3).forEach((s, i) => {
+        const card = document.createElement('div');
+        card.className = 'container-card';
+        card.innerHTML = `
+          <img width="100" height="110" src="image/${medals[i]}.png">
+          <b>${s.nama}</b>
+          <p>${s.kelas}</p>
+          <div class="percentage">
+            <div>Sholat<br>${s.sholatPct}%</div>
+            <div>Izin<br>${s.izinPct}%</div>
+            <div>Alpha<br>${s.alpaPct}%</div>
+          </div>`;
+        container.appendChild(card);
+      });
+
+      // 6. Render sisanya di <tbody>
+      let tbody = document.querySelector('.other-leader table tbody');
+      if (!tbody) {
+        const table = document.querySelector('.other-leader table');
+        tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+      }
+      tbody.innerHTML = '';
+      ranking.slice(3).forEach((s, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${idx + 4}</td>
+          <td>${s.nama}</td>
+          <td>${s.kelas}</td>
+          <td><div class="Status-sholat"><p>${s.sholatPct}%</p></div></td>
+          <td><div class="Status-izin"><p>${s.izinPct}%</p></div></td>
+          <td><div class="Status-alpa"><p>${s.alpaPct}%</p></div></td>
+        `;
+        tbody.appendChild(tr);
+        hideLoading();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadLeaderboard);
+  </script>
+</body>
+</html>

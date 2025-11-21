@@ -1,0 +1,23 @@
+.yellow {
+    background-color: #aeb438;
+    color: white;
+}
+
+.green {
+    background-color: #7cb438ea;
+    color: white;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.637);;
+    color: white;
+}
+
+.tabel-absen table {
+    margin: auto;
+}
+
+.tabel-absen {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}

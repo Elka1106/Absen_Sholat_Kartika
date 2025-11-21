@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.top-left-login {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+@media (min-width: 900px) {
+    .form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    background-color: #7CB438;
+    width: 200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: #cdcdcc 10px 5px 18px 0px;
+}
+
+    .login-right {
+            justify-self: center;
+            align-content: center;
+            margin: auto;
+    }
+
+    input {
+    width: 100px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: left;
+}
+
+button {
+    padding: 5px 40px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+}
+
+.login-right {
+    height: 100vh;
+        justify-self: center;
+    align-content: center;
+    margin: auto;
+    width: max-content;
+}
+
+.top-left-login {
+    background-color: white;
+    width: 270px;
+    padding-left: 30px;
+    border-bottom-right-radius: 40px;
+}
+
+input {
+    width: 300px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+
+button {
+    padding: 10px 50px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: white;
+    color: black;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    background-color: #7CB438;
+    width: 400px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: #cdcdcc 10px 5px 18px 0px;
+}

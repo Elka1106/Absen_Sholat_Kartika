@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XI KR 1</title>
+    <link rel="shortcut icon" href="../../../image/logokartika_400x400-2 3.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../../src/style/dashboard.css">
+    <link rel="stylesheet" href="../../../src/style/daftarabsen.css">
+    <link rel="stylesheet" href="../../../src/style/kelas.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header">
+                <h1>SMK KARTIKA XX-1</h1>
+            </div>
+            <div class="menu">
+                <div class="menu-1">
+                    <a class="a" href="../../../dashboard.html">
+                        <img src="../../../image/dashboard.png" alt="">
+                        <h4>Dashboard</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="../../../daftarabsen.html">
+                        <img src="../../../image/rekapitulasi.png" alt="">
+                        <h4>Rekapitulasi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="../../../absen.html">
+                        <img src="../../../image/absensi.png" alt="">
+                        <h4>Absensi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="../../../leaderboard.html">
+                        <img src="../../../image/leaderboard.png" alt="">
+                        <h4>Leaderboard</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="header-1">
+                    <div class="circle">
+                        <img width="40px" height="40px" style="z-index: 100; padding: 6px 8px;" src="../../../image/rekapitulasi.png" alt="">
+                    </div>
+                    <div class="v-1">
+                        <h4>Absensi Siswa</h4>
+                        <p>v1.0.0</p>
+                    </div>
+                </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="nav-header">
+            <div style="color: black;" class="sub-judul">
+                <h2>XI Kendaraan Ringan 2</h2>
+                <p style="color: rgba(0, 0, 0, 0.556);">Daftar siswa</p>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 40px; padding-right: 20px;">
+                <div style="color: black;" class="search">
+                    <input type="search" placeholder="Cari Siswa">
+                </div>
+                <div class="header-2">
+                    <div class="circle">
+                        <img width="30px" height="30px" style="z-index: 100; padding: 6px 8px;" src="../../../image/rekapitulasi.png" alt="">
+                    </div>
+                    <div id="siswa-widget" class="identitas">
+                        <span id="siswa-info"></span>
+                        <button id="logoutBtn" class="logout">Logout</button>
+                    </div> 
+
+                </div>
+                <div>
+                    <img class="botton-menu" onclick="showSidebar()" src="../../../image/menu_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="">
+                </div>
+        </div>
+        </div>
+
+        <nav class="sidebar" onclick="hideSidebar()">
+            <div class="header">
+                <div class="indentitias1 identitas" id="siswa-widget1" style="background-color: #7cb4386c;">
+                    <span id="siswa-info1"></span>
+                    <a id="logoutBtnHidebar" class="logout">Logout</a>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="menu-1">
+                    <a class="a" href="../../../dashboard.html">
+                        <img src="../../../image/dashboard.png" alt="">
+                        <h4>Dashboard</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="../../../daftarabsen.html">
+                        <img src="../../../image/rekapitulasi.png" alt="">
+                        <h4>Rekapitulasi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="../../../absen.html">
+                        <img src="../../../image/absensi.png" alt="">
+                        <h4>Absensi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="../../../leaderboard.html">
+                        <img src="../../../image/leaderboard.png" alt="">
+                        <h4>Leaderboard</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="header-1">
+                    <div class="circle">
+                        <img width="40px" height="40px" style="z-index: 100; padding: 6px 8px;" src="../../../image/rekapitulasi.png" alt="">
+                    </div>
+                    <div class="v-1">
+                        <h4>Absensi Siswa</h4>
+                        <p>v1.0.0</p>
+                    </div>
+                </div>
+        </nav>
+        <div style="color: black;" class="search-handphone">
+                <input type="search" placeholder="Cari Siswa">
+            </div>
+            <button id="download" onclick="download()"><img src="../../../image/download_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt=""></button>
+        <div class="tabel-absen">
+            <table id="konten1">
+                <thead>
+                    <th rowspan="2">NO</th>
+                    <th rowspan="2">NIS</th>
+                    <th rowspan="2">Nama</th>
+                    <th colspan="3">Status</th>
+                     <tr>
+                    <th class="green">Shalat</th>
+                    <th class="yellow">Izin</th>
+                    <th class="red">Alpha</th>
+                </tr>
+                </thead>
+                <tbody id="data-siswa">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- loading widget -->
+    <div id="loading-widget">
+  <div class="loading-widget-style"></div>
+</div>
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+          async function download() {
+    const { jsPDF } = window.jspdf;
+    const konten = document.getElementById("konten1");
+
+    const canvas = await html2canvas(konten);
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF();
+
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+    pdf.addImage(imgData, "PNG", 0.5, 0.5, pdfWidth, pdfHeight);
+    pdf.save("XI KR2.pdf");
+  }
+    </script>
+</body>
+<script src="../../../src/index.js"></script>
+<script src="../../../src/database.js"></script>
+
+<script>
+    
+ kodeKelas = 'XI KR2';
+ ambilData();
+
+
+</script>
+</html>

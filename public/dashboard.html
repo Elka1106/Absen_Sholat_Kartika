@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="src/style/dashboard.css">
+    <link rel="shortcut icon" href="image/logokartika_400x400-2 3.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header">
+                <h1>SMK KARTIKA XX-1</h1>
+            </div>
+            <div class="menu">
+                <div class="menu-1">
+                    <a class="a" href="dashboard.html">
+                        <img src="image/dashboard.png" alt="">
+                        <h4>Dashboard</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="daftarabsen.html">
+                        <img src="image/rekapitulasi.png" alt="">
+                        <h4>Rekapitulasi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="absen.html">
+                        <img src="image/absensi.png" alt="">
+                        <h4>Absensi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="leaderboard.html">
+                        <img src="image/leaderboard.png" alt="">
+                        <h4>Leaderboard</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="header-1">
+                    <div class="circle">
+                        <img width="40px" height="40px" style="z-index: 100; padding: 6px 8px;" src="image/rekapitulasi.png" alt="">
+                    </div>
+                    <div class="v-1">
+                        <h4>Absensi Siswa</h4>
+                        <p>v1.0.0</p>
+                    </div>
+                </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="nav-header">
+            <div style="color: black;">
+                <h2 style="font-size: 24px;">Dashboard</h2>
+                <p style="color: rgba(0, 0, 0, 0.556);">Daftar absen siswa</p>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 40px; padding-right: 20px;">
+                <div style="color: black;" class="search">
+                    <input type="search" placeholder="Cari Siswa">
+                </div>
+                <div class="header-2">
+                    <div class="circle">
+                        <img width="30px" height="30px" style="z-index: 100; padding: 6px 8px;" src="image/rekapitulasi.png" alt="">
+                    </div>
+                    <div id="siswa-widget" class="identitas">
+             <span id="siswa-info"></span>
+             <button id="logoutBtn" class="logout">Logout</button>
+          </div> 
+                </div>
+                <div>
+                    <img class="botton-menu" onclick="showSidebar()" src="image/menu_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <nav class="sidebar" onclick="hideSidebar()">
+            <div class="header">
+                <div class="indentitias1 identitas" id="siswa-widget1" style="background-color: #7cb4386c;">
+                    <span id="siswa-info1"></span>
+                    <a id="logoutBtnHidebar" class="logout">Logout</a>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="menu-1">
+                    <a class="a" href="./dashboard.html">
+                        <img src="image/dashboard.png" alt="">
+                        <h4>Dashboard</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="./daftarabsen.html">
+                        <img src="image/rekapitulasi.png" alt="">
+                        <h4>Rekapitulasi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="./absen.html">
+                        <img src="image/absensi.png" alt="">
+                        <h4>Absensi</h4>
+                    </a>
+                </div>
+                <div class="menu-1">
+                    <a class="a" href="./leaderboard.html">
+                        <img src="image/leaderboard.png" alt="">
+                        <h4>Leaderboard</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="header-1">
+                    <div class="circle">
+                        <img width="40px" height="40px" style="z-index: 100; padding: 6px 8px;" src="image/rekapitulasi.png" alt="">
+                    </div>
+                    <div class="v-1">
+                        <h4>Absensi Siswa</h4>
+                        <p>v1.0.0</p>
+                    </div>
+                </div>
+        </nav>
+
+        <div class="main-dashboard">
+            <div style="color: black;" class="search-handphone">
+                    <input type="search" placeholder="Cari Siswa">
+                </div>
+            <div class="jurusan">
+                <h3>Kendaraan Ringan</h3>
+                <div class="kelas">
+                    <a class="a-kelas" href="kelas/kr/xi/kr1.html">
+                    <div class="container-kelas">
+                        <div class="two-circle"></div>
+                        <div class="two-circle"></div>
+                        <h4>XI Kendaraan Ringan 1</h4>
+                        <p id="jumlah-1">Loading...</p>
+
+<iframe class="iframeData" data-index="1" src="kelas/kr/xi/kr1.html" style="display:none;"></iframe>
+                    </div>
+                    </a>
+                    <a href="kelas/kr/xi/kr2.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>XI Kendaraan Ringan 2</h4>
+                            <p id="jumlah-2">Loading...</p>
+
+<iframe class="iframeData" data-index="2" src="kelas/kr/xi/kr2.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/kr/x/kr1.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>X Kendaraan Ringan 1</h4>
+                            <p id="jumlah-3">Loading...</p>
+
+<iframe class="iframeData" data-index="3" src="kelas/kr/x/kr1.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/kr/x/kr2.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>X Kendaraan Ringan 2</h4>
+                            <p id="jumlah-4">Loading...</p>
+                            <iframe class="iframeData" data-index="4" src="kelas/kr/x/kr2.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="jurusan">
+                <h3>Sepeda Motor</h3>
+                <div class="kelas">
+                    <a href="kelas/sm/xl/sm.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>XI Sepeda Motor</h4>
+                            <p id="jumlah-5">Loading...</p>
+                            <iframe class="iframeData" data-index="5" src="kelas/sm/xl/sm.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/sm/x/sm.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>X Sepeda Motor</h4>
+                            <p id="jumlah-6">Loading...</p>
+                            <iframe class="iframeData" data-index="6" src="kelas/sm/x/sm.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="jurusan">
+                <h3>Listrik dan Mesin</h3>
+                <div class="kelas">
+                    <a href="kelas/listikmp/xl/listrikmp.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>XI Listrik dan Mesin</h4>
+                            <p id="jumlah-7">Loading...</p>
+                            <iframe class="iframeData" data-index="7" src="kelas/listikmp/xl/listrikmp.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/listikmp/x/listrikmp.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>X Listrik dan Mesin</h4>
+                            <p id="jumlah-8">Loading...</p>
+                            <iframe class="iframeData" data-index="8" src="kelas/listikmp/x/listrikmp.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="jurusan">
+                <h3>Teknik Komputen Jaringan</h3>
+                <div class="kelas">
+                    <a href="kelas/tkj/xl/tkj1.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>XI Teknik Komputer Jaringan 1</h4>
+                            <p id="jumlah-9">Loading...</p>
+                            <iframe class="iframeData" data-index="9" src="kelas/tkj/xl/tkj1.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/tkj/xl/tkj2xdkv.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>XI Teknik Komputer Jaringan 2 dan Desain Komunikasi Visual</h4>
+                            <p id="jumlah-10">Loading...</p>
+                            <iframe class="iframeData" data-index="10" src="kelas/tkj/xl/tkj2xdkv.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/tkj/x/tkj1.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>X Teknik Komputer Jaringan</h4>
+                            <p id="jumlah-11">Loading...</p>
+                            <iframe class="iframeData" data-index="11" src="kelas/tkj/x/tkj1.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="jurusan">
+                <h3>Rekayasa Perangkat Lunak</h3>
+                <div class="kelas">
+                    <a href="kelas/rpl/xl/rpl.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>XI Rekayasa Perangkat Lunak</h4>
+                            <p id="jumlah-12">Loading...</p>
+
+<iframe class="iframeData" data-index="12" src="kelas/rpl/xl/rpl.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                    <a href="kelas/rpl/rplxdkv/rpldkv.html" class="a-kelas">
+                        <div class="container-kelas">
+                            <div class="two-circle"></div>
+                            <div class="two-circle"></div>
+                            <h4>X Rekayasa Perangkat Lunak dan Desain Komunikasi Visual</h4>
+                            <p id="jumlah-13">Loading...</p>
+
+<iframe class="iframeData" data-index="13" src="kelas/rpl/rplxdkv/rpldkv.html" style="display:none;"></iframe>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<script src="src/index.js"></script>
+<script>
+ const iframes = document.querySelectorAll(".iframeData");
+
+  iframes.forEach((iframe) => {
+    const index = iframe.dataset.index // Ambil angka index dari data-index
+
+    iframe.onload = function () {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+      const interval = setInterval(() => {
+        const tbody = doc.getElementById("data-siswa");
+        if (tbody) {
+        const jumlahElement = document.getElementById(`jumlah-${index}`);
+        const rows = tbody.querySelectorAll("tr");
+
+        clearInterval(interval);
+
+        if (jumlahElement) {
+            if (rows.length > 0) {
+                jumlahElement.textContent = `${rows.length} Siswa`;
+            } else {
+                jumlahElement.textContent = "kosong"
+            }
+        }
+        }
+      }, 200);
+    };
+  });
+</script>
+</html>

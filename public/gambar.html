@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload Kamera ke Cloudinary</title>
+</head>
+<body>
+
+  <h2>Kamera</h2>
+  <video id="video" width="320" height="240" autoplay></video><br>
+  <button id="upload">Kirim ke Cloudinary</button>
+  <canvas id="canvas" width="320" height="240" style="display:none;"></canvas><br>
+  <img id="snapshot" src="" alt="Hasil Foto" /><br>
+  <p id="status"></p>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const snapshot = document.getElementById('snapshot');
+    const ctx = canvas.getContext('2d');
+    const uploadBtn = document.getElementById('upload');
+    const status = document.getElementById('status');
+
+    const CLOUD_NAME = 'dqoo5xojd';
+    const UPLOAD_PRESET = 'absenImage';
+
+    // Aktifkan kamera
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(err => console.error('Gagal membuka kamera:', err));
+
+    uploadBtn.addEventListener('click', () => {
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const dataUrl = canvas.toDataURL('image/png');
+      snapshot.src = dataUrl;
+      status.innerText = "Mengupload...";
+
+      fetch(dataUrl)
+        .then(res => res.blob())
+        .then(blob => {
+          const formData = new FormData();
+          formData.append('file', blob);
+          formData.append('upload_preset', UPLOAD_PRESET);
+
+          return fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+            method: 'POST',
+            body: formData
+          });
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log('Berhasil:', data);
+          status.innerHTML = `✅ <a href="${data.secure_url}" target="_blank">Lihat Foto Online</a>`;
+        })
+        .catch(err => {
+          console.error('Gagal upload:', err);
+          status.innerText = "❌ Gagal upload";
+        });
+    });
+  </script>
+
+</body>
+</html>
