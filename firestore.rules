@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Izinkan semua baca/tulis untuk testing (jangan dipakai di production)
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+  }
+}
